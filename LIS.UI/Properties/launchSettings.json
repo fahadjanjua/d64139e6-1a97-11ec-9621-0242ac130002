@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "KmartChallenge.UI": {
+    "LIS.UI": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

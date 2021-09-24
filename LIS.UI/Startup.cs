@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace KmartChallenge.UI
+namespace LIS.UI
 {
     public class Startup
     {
