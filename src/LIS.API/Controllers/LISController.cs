@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using LIS.Common;
 using System.Threading.Tasks;
+using LIS.API.Service;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace LIS.API.Controllers

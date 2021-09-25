@@ -1,0 +1,19 @@
+version: "3.4"
+services:
+  lis-api:
+    container_name: lis-api
+    image: mcr.microsoft.com/dotnet/sdk:5.0
+    working_dir: /api
+    command: "dotnet run --project LIS.API.csproj"
+    ports:
+      - "8080:80"
+  lis-tests:
+    container_name: lis-tests
+    image: mcr.microsoft.com/dotnet/sdk:5.0
+    working_dir: /src
+    command:
+      [
+        "dotnet",
+        "test",
+        "D:/Projects/LongestIncreasingSubsequence/LIS.Tests/LIS.Tests.csproj"
+      ]

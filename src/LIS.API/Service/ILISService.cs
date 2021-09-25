@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LIS.Common
+namespace LIS.API.Service
 {
     public interface ILISService
     {
