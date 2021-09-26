@@ -26,6 +26,7 @@ jobs:
         run: ls -lrt
         
       - name: Restore NuGet packages
+        working-directory: ./LIS
         run: dotnet restore
 
       - name: Build
