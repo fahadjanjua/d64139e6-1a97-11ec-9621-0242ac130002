@@ -1,7 +1,8 @@
 version: '3'
 
 services:
-  web:
+  api:
+    container_name: lis-api
     build: .
     ports: 
       - 5000:5000
