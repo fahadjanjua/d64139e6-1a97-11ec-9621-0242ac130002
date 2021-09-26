@@ -6,8 +6,6 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile.tests
-    environment:
-      - API_URL=http://api:5000   
     entrypoint: dotnet test
     depends_on:
       - api
@@ -16,7 +14,5 @@ services:
     build: .
     ports: 
       - 5000:5000
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
     entrypoint: dotnet /app/Api.dll
 

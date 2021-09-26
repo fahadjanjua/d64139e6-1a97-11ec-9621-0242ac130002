@@ -5,7 +5,7 @@
 
 <h1>Longest Increasing Subsequence</h1>
 <div>
-    <h6>Enter the whitespace separated sequnce of numbers in the text box and click LIS to find longest increasing subsequence.</h6>
+    <h6>Enter the whitespace separated sequnce of numbers in the text box and click Find LIS to find longest increasing subsequence.</h6>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon3">Input:</span>
@@ -28,7 +28,7 @@
     private async Task GetOutput()
     {
         var apiHost = config["APIHost"];
-        var response = await httpClient.PostAsJsonAsync<string>(apiHost + "/api/lis", input);
+        var response = await httpClient.PostAsJsonAsync(apiHost + "/api/lis", input);
         if (response.IsSuccessStatusCode)
         {
             output = await response.Content.ReadAsStringAsync();
@@ -37,6 +37,5 @@
         {
             output = response.ReasonPhrase;
         }
-
     }
 }

@@ -9,17 +9,17 @@ using Xunit;
 
 namespace Tests
 {
-    public class IntegrationTests : IClassFixture<LISWebApplicationFactory<Startup>>
+    public class LISIntegrationTests : IClassFixture<LISWebApplicationFactory<Startup>>
     {
         private readonly HttpClient _client;
 
-        public IntegrationTests(LISWebApplicationFactory<Startup> factory)
+        public LISIntegrationTests(LISWebApplicationFactory<Startup> factory)
         {
             _client = factory.CreateDefaultClient();
         }
 
 
-        [Fact]
+        [Fact(DisplayName = "Execute Test Case 1")]
         public async Task PostRquestToAPI_RunsTestCase1_ReturnsOKAndResultIsALIS()
         {
             //Arrange
@@ -34,7 +34,7 @@ namespace Tests
             response.Content.ReadAsStringAsync().Result.Should().Be(output);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Execute Test Case 2")]
         public async Task PostRquestToAPI_RunsTestCase2_ReturnsOKAndResultIsALIS()
         {
             //Arrange
@@ -49,7 +49,7 @@ namespace Tests
             response.Content.ReadAsStringAsync().Result.Should().Be(output);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Execute Test Case 3")]
         public async Task PostRquestToAPI_RunsTestCase3_ReturnsOKAndResultIsALIS()
         {
             //Arrange
@@ -64,7 +64,7 @@ namespace Tests
             response.Content.ReadAsStringAsync().Result.Should().Be(output);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Execute Test Case 4")]
         public async Task PostRquestToAPI_RunsTestCase4_ReturnsOKAndResultIsALIS()
         {
             //Arrange
@@ -79,7 +79,7 @@ namespace Tests
             response.Content.ReadAsStringAsync().Result.Should().Be(output);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Execute Test Case 5")]
         public async Task PostRquestToAPI_RunsTestCase5_ReturnsOKAndResultIsALIS()
         {
             //Arrange
@@ -94,7 +94,7 @@ namespace Tests
             response.Content.ReadAsStringAsync().Result.Should().Be(output);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Execute Test Case 6")]
         public async Task PostRquestToAPI_RunsTestCase6_ReturnsOKAndResultIsALIS()
         {
             //Arrange
@@ -109,7 +109,7 @@ namespace Tests
             response.Content.ReadAsStringAsync().Result.Should().Be(output);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Execute Test Case 7")]
         public async Task PostRquestToAPI_RunsTestCase7_ReturnsOKAndResultIsALIS()
         {
             //Arrange
@@ -124,7 +124,7 @@ namespace Tests
             response.Content.ReadAsStringAsync().Result.Should().Be(output);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Execute Test Case 8")]
         public async Task PostRquestToAPI_RunsTestCase8_ReturnsOKAndResultIsALIS()
         {
             //Arrange
@@ -139,7 +139,7 @@ namespace Tests
             response.Content.ReadAsStringAsync().Result.Should().Be(output);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Execute Test Case 9")]
         public async Task PostRquestToAPI_RunsTestCase9_ReturnsOKAndResultIsALIS()
         {
             //Arrange
@@ -154,7 +154,7 @@ namespace Tests
             response.Content.ReadAsStringAsync().Result.Should().Be(output);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Execute Test Case 10")]
         public async Task PostRquestToAPI_RunsTestCase10_ReturnsOKAndResultIsALIS()
         {
             //Arrange
@@ -169,7 +169,7 @@ namespace Tests
             response.Content.ReadAsStringAsync().Result.Should().Be(output);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Execute Test Case 11")]
         public async Task PostRquestToAPI_RunsTestCase11_ReturnsOKAndResultIsALIS()
         {
             //Arrange
