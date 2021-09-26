@@ -13,5 +13,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Execute tests
-        working-directory: ./app
+        working-directory: ./src
         run: docker-compose -f docker-compose-tests.yml up --exit-code-from tests
