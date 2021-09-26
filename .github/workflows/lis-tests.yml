@@ -21,7 +21,10 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '5.0'
-    
+      
+      - name: list some files
+        run: ls -lrt
+        
       - name: Restore NuGet packages
         run: dotnet restore
 
