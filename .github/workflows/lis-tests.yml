@@ -23,6 +23,7 @@ jobs:
           dotnet-version: '5.0'
     
       - name: Restore NuGet packages
+        working-directory: ./app/tests
         run: dotnet restore
 
       - name: Build
