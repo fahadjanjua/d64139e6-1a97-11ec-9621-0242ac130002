@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  runtests:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
@@ -26,10 +26,10 @@ jobs:
         working-directory: ./LIS
         run: dotnet restore
 
-      - name: Build
+      - name: Build Projects
         working-directory: ./LIS
         run: dotnet build -c Release --no-restore
     
-      - name: Test
+      - name: Execute Tests
         working-directory: ./LIS/Tests
         run: dotnet test -c Release --no-build
