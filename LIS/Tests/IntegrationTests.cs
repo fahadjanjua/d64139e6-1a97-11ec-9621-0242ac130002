@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using API;
@@ -8,105 +9,179 @@ using Xunit;
 
 namespace Tests
 {
-    public class IntegrationTests : LISCaseFixture<Startup>
+    public class IntegrationTests : IClassFixture<LISWebApplicationFactory<Startup>>
     {
+        private readonly HttpClient _client;
+
+        public IntegrationTests(LISWebApplicationFactory<Startup> factory)
+        {
+            _client = factory.CreateDefaultClient();
+        }
+
+
         [Fact]
         public async Task PostRquestToAPI_RunsTestCase1_ReturnsOKAndResultIsALIS()
         {
-            var response = await Client.PostAsJsonAsync("api/LIS", TestCases.testCases[0]);
-                response.StatusCode.Should().Be(HttpStatusCode.OK);
-                var result = response.Content.ReadAsStringAsync();
-                Assert.Equal(result.Result, TestCases.testCaseResults[0]);
+            //Arrange
+            var input = TestCases.testCases[0];
+            var output = TestCases.testCaseResults[0];
+
+            //Act
+            var response = await _client.PostAsJsonAsync("api/LIS", input);
+            
+            //Assert
+            response.StatusCode.Should().Be(HttpStatusCode.OK);
+            response.Content.ReadAsStringAsync().Result.Should().Be(output);
         }
 
         [Fact]
         public async Task PostRquestToAPI_RunsTestCase2_ReturnsOKAndResultIsALIS()
         {
-            var response = await Client.PostAsJsonAsync("api/LIS", TestCases.testCases[1]);
+            //Arrange
+            var input = TestCases.testCases[1];
+            var output = TestCases.testCaseResults[1];
+
+            //Act
+            var response = await _client.PostAsJsonAsync("api/LIS", input);
+
+            //Assert
             response.StatusCode.Should().Be(HttpStatusCode.OK);
-            var result = response.Content.ReadAsStringAsync();
-            Assert.Equal(result.Result, TestCases.testCaseResults[1]);
+            response.Content.ReadAsStringAsync().Result.Should().Be(output);
         }
 
         [Fact]
         public async Task PostRquestToAPI_RunsTestCase3_ReturnsOKAndResultIsALIS()
         {
-            var response = await Client.PostAsJsonAsync("api/LIS", TestCases.testCases[2]);
+            //Arrange
+            var input = TestCases.testCases[2];
+            var output = TestCases.testCaseResults[2];
+
+            //Act
+            var response = await _client.PostAsJsonAsync("api/LIS", input);
+
+            //Assert
             response.StatusCode.Should().Be(HttpStatusCode.OK);
-            var result = response.Content.ReadAsStringAsync();
-            Assert.Equal(result.Result, TestCases.testCaseResults[2]);
+            response.Content.ReadAsStringAsync().Result.Should().Be(output);
         }
 
         [Fact]
         public async Task PostRquestToAPI_RunsTestCase4_ReturnsOKAndResultIsALIS()
         {
-            var response = await Client.PostAsJsonAsync("api/LIS", TestCases.testCases[3]);
+            //Arrange
+            var input = TestCases.testCases[3];
+            var output = TestCases.testCaseResults[3];
+
+            //Act
+            var response = await _client.PostAsJsonAsync("api/LIS", input);
+            
+            //Assert
             response.StatusCode.Should().Be(HttpStatusCode.OK);
-            var result = response.Content.ReadAsStringAsync();
-            Assert.Equal(result.Result, TestCases.testCaseResults[3]);
+            response.Content.ReadAsStringAsync().Result.Should().Be(output);
         }
 
         [Fact]
         public async Task PostRquestToAPI_RunsTestCase5_ReturnsOKAndResultIsALIS()
         {
-            var response = await Client.PostAsJsonAsync("api/LIS", TestCases.testCases[4]);
+            //Arrange
+            var input = TestCases.testCases[4];
+            var output = TestCases.testCaseResults[4];
+
+            //Act
+            var response = await _client.PostAsJsonAsync("api/LIS", input);
+
+            //Assert
             response.StatusCode.Should().Be(HttpStatusCode.OK);
-            var result = response.Content.ReadAsStringAsync();
-            Assert.Equal(result.Result, TestCases.testCaseResults[4]);
+            response.Content.ReadAsStringAsync().Result.Should().Be(output);
         }
 
         [Fact]
         public async Task PostRquestToAPI_RunsTestCase6_ReturnsOKAndResultIsALIS()
         {
-            var response = await Client.PostAsJsonAsync("api/LIS", TestCases.testCases[5]);
+            //Arrange
+            var input = TestCases.testCases[5];
+            var output = TestCases.testCaseResults[5];
+
+            //Act
+            var response = await _client.PostAsJsonAsync("api/LIS", input);
+
+            //Assert
             response.StatusCode.Should().Be(HttpStatusCode.OK);
-            var result = response.Content.ReadAsStringAsync();
-            Assert.Equal(result.Result, TestCases.testCaseResults[5]);
+            response.Content.ReadAsStringAsync().Result.Should().Be(output);
         }
 
         [Fact]
         public async Task PostRquestToAPI_RunsTestCase7_ReturnsOKAndResultIsALIS()
         {
-            var response = await Client.PostAsJsonAsync("api/LIS", TestCases.testCases[6]);
+            //Arrange
+            var input = TestCases.testCases[6];
+            var output = TestCases.testCaseResults[6];
+
+            //Act
+            var response = await _client.PostAsJsonAsync("api/LIS", input);
+
+            //Assert
             response.StatusCode.Should().Be(HttpStatusCode.OK);
-            var result = response.Content.ReadAsStringAsync();
-            Assert.Equal(result.Result, TestCases.testCaseResults[6]);
+            response.Content.ReadAsStringAsync().Result.Should().Be(output);
         }
 
         [Fact]
         public async Task PostRquestToAPI_RunsTestCase8_ReturnsOKAndResultIsALIS()
         {
-            var response = await Client.PostAsJsonAsync("api/LIS", TestCases.testCases[7]);
+            //Arrange
+            var input = TestCases.testCases[7];
+            var output = TestCases.testCaseResults[7];
+
+            //Act
+            var response = await _client.PostAsJsonAsync("api/LIS", input);
+
+            //Assert
             response.StatusCode.Should().Be(HttpStatusCode.OK);
-            var result = response.Content.ReadAsStringAsync();
-            Assert.Equal(result.Result, TestCases.testCaseResults[7]);
+            response.Content.ReadAsStringAsync().Result.Should().Be(output);
         }
 
         [Fact]
         public async Task PostRquestToAPI_RunsTestCase9_ReturnsOKAndResultIsALIS()
         {
-            var response = await Client.PostAsJsonAsync("api/LIS", TestCases.testCases[8]);
+            //Arrange
+            var input = TestCases.testCases[8];
+            var output = TestCases.testCaseResults[8];
+
+            //Act
+            var response = await _client.PostAsJsonAsync("api/LIS", input);
+
+            //Assert
             response.StatusCode.Should().Be(HttpStatusCode.OK);
-            var result = response.Content.ReadAsStringAsync();
-            Assert.Equal(result.Result, TestCases.testCaseResults[8]);
+            response.Content.ReadAsStringAsync().Result.Should().Be(output);
         }
 
         [Fact]
         public async Task PostRquestToAPI_RunsTestCase10_ReturnsOKAndResultIsALIS()
         {
-            var response = await Client.PostAsJsonAsync("api/LIS", TestCases.testCases[9]);
+            //Arrange
+            var input = TestCases.testCases[9];
+            var output = TestCases.testCaseResults[9];
+
+            //Act
+            var response = await _client.PostAsJsonAsync("api/LIS", input);
+
+            //Assert
             response.StatusCode.Should().Be(HttpStatusCode.OK);
-            var result = response.Content.ReadAsStringAsync();
-            Assert.Equal(result.Result, TestCases.testCaseResults[9]);
+            response.Content.ReadAsStringAsync().Result.Should().Be(output);
         }
 
         [Fact]
         public async Task PostRquestToAPI_RunsTestCase11_ReturnsOKAndResultIsALIS()
         {
-            var response = await Client.PostAsJsonAsync("api/LIS", TestCases.testCases[10]);
+            //Arrange
+            var input = TestCases.testCases[10];
+            var output = TestCases.testCaseResults[10];
+
+            //Act
+            var response = await _client.PostAsJsonAsync("api/LIS", input);
+
+            //Assert
             response.StatusCode.Should().Be(HttpStatusCode.OK);
-            var result = response.Content.ReadAsStringAsync();
-            Assert.Equal(result.Result, TestCases.testCaseResults[10]);
+            response.Content.ReadAsStringAsync().Result.Should().Be(output);
         }
     }
 }

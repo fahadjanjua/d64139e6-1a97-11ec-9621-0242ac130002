@@ -1,11 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using API.Service;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace API.Controllers
 {
@@ -29,13 +26,12 @@ namespace API.Controllers
                     return BadRequest("Input is required.");
                 }
                     
-
-                var result = await _service.FindLIS(input);
-                return Ok(result);
+                var result = await _service.FindLIS(input); //Input is not empty let's find the LIS from the LIS service.
+                return Ok(result); //return the LIS result as the Http 200 OKObjectResult
             }
             catch (Exception)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError);
+                return StatusCode(StatusCodes.Status500InternalServerError); //For any exception thrown return the Http 500 Internal Server Error to the client
             }
         }
     }

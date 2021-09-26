@@ -1,4 +1,4 @@
-﻿namespace Tests
+﻿namespace Tests.Setup
 {
     public static class TestCases
     {
