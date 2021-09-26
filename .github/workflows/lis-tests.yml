@@ -1,4 +1,4 @@
-name: Tests
+name: LISTests
 
 on:
   push:
@@ -21,9 +21,6 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '5.0'
-      
-      - name: list some files
-        run: ls -lrt
         
       - name: Restore NuGet packages
         working-directory: ./LIS
