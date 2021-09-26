@@ -14,4 +14,4 @@ jobs:
         uses: actions/checkout@v2
       - name: Execute tests
         working-directory: ./app/tests
-        run: docker-compose up --exit-code-from testsx
+        run: docker-compose up --exit-code-from tests
