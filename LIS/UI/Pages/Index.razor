@@ -1,0 +1,42 @@
+﻿@page "/"
+@using System.Net.Http.Json
+@inject Microsoft.Extensions.Configuration.IConfiguration config
+@inject HttpClient httpClient
+
+<h1>Longest Increasing Subsequence</h1>
+<div>
+    <h6>Enter the whitespace separated sequnce of numbers in the text box and click LIS to find longest increasing subsequence.</h6>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon3">Input:</span>
+        </div>
+        <input type="text" @bind="@input" class="form-control" aria-describedby="basic-addon3" placeholder="6 1 5 9 2" />
+    </div>
+    <button type="button" class="btn btn-primary" @onclick=@GetOutput>Find LIS</button>
+
+    <div class="alert alert-success mt-5" role="alert">
+        <h4 class="alert-heading">Output</h4>
+        <hr>
+        <p class="mb-0">@output</p>
+    </div>
+</div>
+
+@code
+{
+    private string input { get; set; }
+    private string output { get; set; }
+    private async Task GetOutput()
+    {
+        var apiHost = config["APIHost"];
+        var response = await httpClient.PostAsJsonAsync<string>(apiHost + "/api/lis", input);
+        if (response.IsSuccessStatusCode)
+        {
+            output = await response.Content.ReadAsStringAsync();
+        }
+        else
+        {
+            output = response.ReasonPhrase;
+        }
+
+    }
+}
