@@ -1,0 +1,17 @@
+name: Tests
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Execute tests
+        working-directory: ./app/Tests
+        run: docker-compose -f docker-compose-tests.yml up --exit-code-from lis_tests
