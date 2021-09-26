@@ -1,0 +1,35 @@
+name: LISTests
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+    
+      - name: Start dependencies (docker-compose)
+        run: |
+                    docker-compose up -f docker-compose-tests.yml -d  
+
+      - name: Install .NET Core SDK
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.0'
+        
+      - name: Restore NuGet packages
+        working-directory: ./LIS
+        run: dotnet restore
+
+      - name: Build Projects
+        working-directory: ./LIS
+        run: dotnet build -c Release --no-restore
+    
+      - name: Execute Tests
+        working-directory: ./LIS/Tests
+        run: dotnet test -c Release --no-build
