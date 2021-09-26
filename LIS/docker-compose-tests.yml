@@ -2,6 +2,7 @@ version: '3'
 
 services:
   tests:
+    container_name: lis-tests
     build: 
       context: .
       dockerfile: Dockerfile.tests
@@ -11,6 +12,7 @@ services:
     depends_on:
       - api
   api:
+    container_name: lis-api
     build: .
     ports: 
       - 5000:5000

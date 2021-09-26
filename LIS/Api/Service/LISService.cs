@@ -12,19 +12,16 @@ namespace API.Service
             //First let's convert the input string to an array of integers
             var inputArr = Array.ConvertAll(input.Trim().Split(' '), s => int.Parse(s));
 
+            //The key of the dictionary is the starting index of the particular LIS sequence and will be used in orderby to output first appearing sequence if multiple sequences of same length are found
             var dictionaryLIS = new Dictionary<int, List<int>>();
 
             int currentSequenceLength; //This int variable will keep track of total elements in the current LIS sequence so that we can skip for loop iterations of those elements that already form part of LIS from a previous input
-            int maxSequenceLength = 0; // This will keep track of max LIS sequence length.
+            int maxSequenceLength = 0; // This will keep track of max LIS sequence length so that we only add larger LIS sequence to the dictionary to keep the size of dictionary small.
             for (int i = 0; i < inputArr.Length; i += currentSequenceLength)
             {
                 currentSequenceLength = 1;
                 var currentSequence = new List<int> { inputArr[i] };
-                //if (i == inputArr.Length - 1)
-                //{
-                //    dictionaryLIS.Add(i, currentSequence);
-                //    break;
-                //}
+
                 for (int j = i + 1; j < inputArr.Length; j++)
                 {
                     if (inputArr[j] > inputArr[j - 1])
