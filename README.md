@@ -36,6 +36,8 @@ To run the integration tests run the following commands from the CLI which will 
   cd LIS
 
   docker-compose -f docker-compose-tests.yml up
+  OR
+  docker-compose -f docker-compose-tests.yml run tests
 ```
 # Continuous Integration
 The solution has a CI pipeline via GitHub actions and runs tests whenever changes are committed or pushed to the master branch.
