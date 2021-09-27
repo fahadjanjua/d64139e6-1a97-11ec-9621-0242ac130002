@@ -36,12 +36,12 @@ namespace Tests
             //Arrange
 
             var mockService = new Mock<ILISService>();
-            mockService.Setup(x => x.FindLIS(TestCases.testCases[0])).Throws(new Exception());
+            mockService.Setup(x => x.FindLIS("Any invalid input")).Throws(new Exception());
 
             var controller = new LISController(mockService.Object);
 
             //Act
-            var actionResult = controller.PostAsync(TestCases.testCases[0]);
+            var actionResult = controller.PostAsync("Any invalid input");
 
             //Assert
             var result = actionResult.Result as StatusCodeResult;
