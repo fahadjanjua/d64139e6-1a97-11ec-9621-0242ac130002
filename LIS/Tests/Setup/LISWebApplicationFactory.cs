@@ -14,9 +14,7 @@ namespace Tests.Setup
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder
-                        .UseStartup<TStartup>()
-                        .UseTestServer()
-                        .ConfigureTestServices(services => services.AddMvc().AddApplicationPart(typeof(TStartup).Assembly));
+                        .UseStartup<TStartup>();
                 });
 
             return builder;
